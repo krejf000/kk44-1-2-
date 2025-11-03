@@ -1,0 +1,40 @@
+print("Введіть кількість розділів у документі (від 1 до 20):")
+user_input = input(">>> ")
+
+if not user_input.isdigit():
+print("Помилка! Потрібно ввести ціле число.")
+exit()
+
+num_sections = int(user_input)
+
+if num_sections <= 0 or num_sections > 20:
+print("Помилка! Кількість розділів має бути від 1 до 20.")
+exit()
+
+print("Оберіть метод сортування:")
+print("1 - За абеткою (A → Я)")
+print("2 - У зворотному порядку (Я → A)")
+print("3 - За довжиною назви")
+method = input(">>> ")
+
+sections = []
+
+for i in range(num_sections):
+title = input(f"Введіть назву розділу №{i + 1}: ")
+sections.append(title)
+
+sections = list(set(sections))
+
+if method == "1":
+sections.sort()
+elif method == "2":
+sections.sort(reverse=True)
+elif method == "3":
+sections.sort(key=len)
+else:
+print("Невідомий метод сортування! Використано стандартне сортування.")
+sections.sort()
+
+print("\nРезультат після сортування та видалення дублікатів:")
+for s in sections:
+print("-", s)
