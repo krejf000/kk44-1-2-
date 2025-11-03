@@ -1,0 +1,7 @@
+print ("ENTER PASSWORD")
+user_password=input(">>>")
+correct_password="123123"
+if user_password==correct_password:
+     print("ACCESS GRANTED!")
+else:
+     print("ACCESS DENIED!")
